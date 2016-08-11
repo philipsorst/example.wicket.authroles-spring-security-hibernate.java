@@ -3,8 +3,17 @@
 <body>
 	<wicket:child />
 	<hr />
+	<h2>Links</h2>
+	<ul>
+		<li><a wicket:id="homePageLink"></a></li>
+		<li><a wicket:id="userPageLink"></a></li>
+		<li><a wicket:id="adminPageLink"></a></li>
+	</ul>
+	<hr />
 	<h2>User Info</h2>
-	<p>Roles: <span wicket:id="roles"></span></p>
+	<p>
+		Roles: <span wicket:id="roles"></span>
+	</p>
 	<button wicket:id="logoutLink"></button>
 </body>
 </html>
