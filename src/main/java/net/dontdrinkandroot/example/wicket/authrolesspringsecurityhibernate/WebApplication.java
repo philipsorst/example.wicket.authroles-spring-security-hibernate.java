@@ -13,6 +13,12 @@ public class WebApplication extends AuthenticatedWebApplication
 {
 
 	@Override
+	protected void init()
+	{
+		super.init();
+	}
+
+	@Override
 	protected Class<? extends AbstractAuthenticatedWebSession> getWebSessionClass()
 	{
 		return WebSession.class;

@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:wicket>
 <body>
-	<p>Hello World</p>
+	<wicket:extend>
+		<h1>HomePage</h1>
+		
+		<ul>
+			<li><a wicket:id="userPageLink"></a></li>
+			<li><a wicket:id="adminPageLink"></a></li>
+		</ul>
+	</wicket:extend>
 </body>
 </html>

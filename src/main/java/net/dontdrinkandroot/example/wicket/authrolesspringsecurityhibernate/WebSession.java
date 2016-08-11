@@ -8,6 +8,9 @@ import org.apache.wicket.request.Request;
 public class WebSession extends AuthenticatedWebSession
 {
 
+	private Roles roles;
+
+
 	public WebSession(Request request)
 	{
 		super(request);
@@ -16,15 +19,28 @@ public class WebSession extends AuthenticatedWebSession
 	@Override
 	protected boolean authenticate(String username, String password)
 	{
-		// TODO Auto-generated method stub
+		if ("user".equals(username) && "user".equals(password)) {
+			this.roles = new Roles(Roles.USER);
+			return true;
+		}
+		if ("admin".equals(username) && "admin".equals(password)) {
+			this.roles = new Roles(new String[] { Roles.USER, Roles.ADMIN });
+			return true;
+		}
+
 		return false;
 	}
 
 	@Override
 	public Roles getRoles()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return this.roles;
 	}
 
+	@Override
+	public void signOut()
+	{
+		super.signOut();
+		this.roles = null;
+	}
 }
