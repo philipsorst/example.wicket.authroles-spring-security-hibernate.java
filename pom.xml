@@ -6,6 +6,30 @@
 	<version>0.1.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 
+	<developers>
+		<developer>
+			<name>Philip Washington Sorst</name>
+			<url>https://sorst.net</url>
+		</developer>
+	</developers>
+
+	<organization>
+		<name>dontdrinkandroot</name>
+		<url>https://dontdrinkandroot.net</url>
+	</organization>
+
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<prerequisites>
+		<maven>3.0</maven>
+	</prerequisites>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<version.org.eclipse.jetty.jetty-maven-plugin>9.3.10.v20160621</version.org.eclipse.jetty.jetty-maven-plugin>
