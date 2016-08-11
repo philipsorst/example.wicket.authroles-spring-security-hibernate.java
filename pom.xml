@@ -7,9 +7,11 @@
 	<packaging>war</packaging>
 
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<version.org.eclipse.jetty.jetty-maven-plugin>9.3.10.v20160621</version.org.eclipse.jetty.jetty-maven-plugin>
 		<version.org.slf4j>1.7.21</version.org.slf4j>
 		<version.junit>4.12</version.junit>
+		<version.org.apache.wicket>7.4.0</version.org.apache.wicket>
 		<version.javax.servlet-api>3.1.0</version.javax.servlet-api>
 	</properties>
 
@@ -21,9 +23,48 @@
 				<version>${version.org.eclipse.jetty.jetty-maven-plugin}</version>
 			</plugin>
 		</plugins>
+		<!-- Make sure HTML files are also copied from main/java -->
+		<resources>
+			<resource>
+				<filtering>false</filtering>
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
+				<filtering>false</filtering>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<filtering>false</filtering>
+				<directory>src/test/resources</directory>
+			</testResource>
+			<testResource>
+				<filtering>false</filtering>
+				<directory>src/test/java</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</testResource>
+		</testResources>
 	</build>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>org.apache.wicket</groupId>
+			<artifactId>wicket-auth-roles</artifactId>
+			<version>${version.org.apache.wicket}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.slf4j</groupId>
