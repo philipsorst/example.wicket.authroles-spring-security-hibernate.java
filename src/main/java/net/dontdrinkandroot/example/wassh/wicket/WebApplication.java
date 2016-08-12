@@ -1,4 +1,4 @@
-package net.dontdrinkandroot.example.wicket.authrolesspringsecurityhibernate;
+package net.dontdrinkandroot.example.wassh.wicket;
 
 import org.apache.wicket.Page;
 import org.apache.wicket.authroles.authentication.AbstractAuthenticatedWebSession;
@@ -10,9 +10,9 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-import net.dontdrinkandroot.example.wicket.authrolesspringsecurityhibernate.page.AdminPage;
-import net.dontdrinkandroot.example.wicket.authrolesspringsecurityhibernate.page.HomePage;
-import net.dontdrinkandroot.example.wicket.authrolesspringsecurityhibernate.page.UserPage;
+import net.dontdrinkandroot.example.wassh.wicket.page.AdminPage;
+import net.dontdrinkandroot.example.wassh.wicket.page.HomePage;
+import net.dontdrinkandroot.example.wassh.wicket.page.UserPage;
 
 
 public class WebApplication extends AuthenticatedWebApplication implements ApplicationContextAware

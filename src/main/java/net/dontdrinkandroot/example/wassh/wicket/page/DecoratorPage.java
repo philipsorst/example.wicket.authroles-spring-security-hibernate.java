@@ -1,11 +1,11 @@
-package net.dontdrinkandroot.example.wicket.authrolesspringsecurityhibernate.page;
+package net.dontdrinkandroot.example.wassh.wicket.page;
 
 import org.apache.wicket.markup.html.GenericWebPage;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.model.Model;
 
-import net.dontdrinkandroot.example.wicket.authrolesspringsecurityhibernate.component.LogoutLink;
-import net.dontdrinkandroot.example.wicket.authrolesspringsecurityhibernate.component.UserRolesLabel;
+import net.dontdrinkandroot.example.wassh.wicket.component.LogoutLink;
+import net.dontdrinkandroot.example.wassh.wicket.component.UserRolesLabel;
 
 
 public class DecoratorPage<T> extends GenericWebPage<T>

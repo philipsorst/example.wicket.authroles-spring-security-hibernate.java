@@ -1,4 +1,4 @@
-package net.dontdrinkandroot.example.wicket.authrolesspringsecurityhibernate;
+package net.dontdrinkandroot.example.wassh.wicket;
 
 import java.util.Collection;
 

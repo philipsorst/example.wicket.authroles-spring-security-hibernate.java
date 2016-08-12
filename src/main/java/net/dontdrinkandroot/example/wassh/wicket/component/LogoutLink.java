@@ -1,4 +1,4 @@
-package net.dontdrinkandroot.example.wicket.authrolesspringsecurityhibernate.component;
+package net.dontdrinkandroot.example.wassh.wicket.component;
 
 import org.apache.wicket.authorization.Action;
 import org.apache.wicket.authroles.authentication.pages.SignOutPage;

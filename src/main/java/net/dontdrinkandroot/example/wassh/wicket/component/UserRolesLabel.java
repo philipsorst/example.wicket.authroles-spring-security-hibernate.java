@@ -1,10 +1,10 @@
-package net.dontdrinkandroot.example.wicket.authrolesspringsecurityhibernate.component;
+package net.dontdrinkandroot.example.wassh.wicket.component;
 
 import org.apache.wicket.authroles.authorization.strategies.role.Roles;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 
-import net.dontdrinkandroot.example.wicket.authrolesspringsecurityhibernate.WebSession;
+import net.dontdrinkandroot.example.wassh.wicket.WebSession;
 
 
 public class UserRolesLabel extends Label

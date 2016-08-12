@@ -15,7 +15,7 @@
 	<context:annotation-config />
 
 	<bean id="wicketApplication"
-		class="net.dontdrinkandroot.example.wicket.authrolesspringsecurityhibernate.WebApplication">
+		class="net.dontdrinkandroot.example.wassh.wicket.WebApplication">
 	</bean>
 
 	<security:http create-session="never" entry-point-ref="authenticationEntryPoint">
