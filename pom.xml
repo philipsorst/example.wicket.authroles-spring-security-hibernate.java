@@ -43,6 +43,8 @@
 		<version.maven-compiler-plugin>3.5.1</version.maven-compiler-plugin>
 		<version.junit>4.12</version.junit>
 		<version.javax.servlet-api>3.1.0</version.javax.servlet-api>
+		<version.org.codehaus.mojo.cobertura-maven-plugin>2.7</version.org.codehaus.mojo.cobertura-maven-plugin>
+		<version.org.eluder.coveralls.coveralls-maven-plugin>4.2.0</version.org.eluder.coveralls.coveralls-maven-plugin>
 	</properties>
 
 	<build>
@@ -60,6 +62,24 @@
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>${version.org.eclipse.jetty.jetty-maven-plugin}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>${version.org.codehaus.mojo.cobertura-maven-plugin}</version>
+				<configuration>
+					<format>xml</format>
+					<maxmem>256m</maxmem>
+					<!-- aggregated reports for multi-module projects -->
+					<aggregate>true</aggregate>
+					<check />
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eluder.coveralls</groupId>
+				<artifactId>coveralls-maven-plugin</artifactId>
+				<version>${version.org.eluder.coveralls.coveralls-maven-plugin}</version>
 			</plugin>
 		</plugins>
 		<!-- Make sure HTML files are also copied from main/java -->
@@ -166,7 +186,7 @@
 			<version>${version.javax.servlet-api}</version>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
