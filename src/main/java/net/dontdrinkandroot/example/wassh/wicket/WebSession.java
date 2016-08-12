@@ -59,6 +59,14 @@ public class WebSession extends AuthenticatedWebSession
 				roles.add(grantedAuthority.toString());
 			}
 		}
+
 		return roles;
+	}
+
+	@Override
+	public void signOut()
+	{
+		super.signOut();
+		SecurityContextHolder.getContext().setAuthentication(null);
 	}
 }

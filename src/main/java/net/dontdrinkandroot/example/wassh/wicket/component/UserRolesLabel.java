@@ -18,9 +18,6 @@ public class UserRolesLabel extends Label
 			public String getObject()
 			{
 				Roles roles = WebSession.get().getRoles();
-				if (null == roles) {
-					return "N/A";
-				}
 				return roles.toString();
 			}
 		});

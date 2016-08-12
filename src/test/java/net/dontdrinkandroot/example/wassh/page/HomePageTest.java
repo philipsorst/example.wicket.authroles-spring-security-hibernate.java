@@ -22,13 +22,27 @@ public class HomePageTest extends AbstractWicketTest
 		Assert.assertTrue(logoutLinkTester.getAttributeIs("disabled", "disabled"));
 	}
 
-	public void testLogoutLinkEnabledForUser()
+	@Test
+	public void testLogoutLink()
 	{
 		this.getSession().signIn("user", "user");
+		Assert.assertTrue(this.getSession().isSignedIn());
 		this.tester.startPage(HomePage.class);
 
 		TagTester logoutLinkTester =
 				TagTester.createTagByAttribute(this.tester.getLastResponseAsString(), "wicket:id", "logoutLink");
 		Assert.assertFalse(logoutLinkTester.hasAttribute("disabled"));
+
+		this.tester.clickLink("logoutLink");
+
+		Assert.assertFalse(this.getSession().isSignedIn());
+	}
+
+	@Test
+	public void testInvalidLogin()
+	{
+		Assert.assertFalse(this.getSession().isSignedIn());
+		this.getSession().signIn("wronguser", "wrongpassword");
+		Assert.assertFalse(this.getSession().isSignedIn());
 	}
 }
