@@ -1,6 +1,10 @@
 Wicket Auth-Roles with Spring Security and Hibernate
 ====================================================
 
+[![Build Status](https://travis-ci.org/philipsorst/example.wicket.authroles-spring-security-hibernate.java.svg?branch=master)](https://travis-ci.org/philipsorst/example.wicket.authroles-spring-security-hibernate.java)
+[![Coverage Status](https://coveralls.io/repos/github/philipsorst/example.wicket.authroles-spring-security-hibernate.java/badge.svg?branch=master)](https://coveralls.io/github/philipsorst/example.wicket.authroles-spring-security-hibernate.java?branch=master)
+[![Donate](http://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=W9NAXW8YAZ4D6&item_name=Wicket Auth-Roles with Spring Security and Hibernate&currency_code=EUR)
+
 About
 -----
 
