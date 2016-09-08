@@ -3,7 +3,9 @@ package net.dontdrinkandroot.example.wassh.domain.model;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * @author Philip Washington Sorst <philip@sorst.net>
+ */
 public enum Role
 {
     USER(null),

@@ -1,19 +1,60 @@
 <!DOCTYPE html>
 <html xmlns:wicket>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title wicket:id="title"></title>
+    <wicket:head>
+    </wicket:head>
+</head>
 <body>
-	<wicket:child />
-	<hr />
-	<h2>Links</h2>
-	<ul>
-		<li><a wicket:id="homePageLink"></a></li>
-		<li><a wicket:id="userPageLink"></a></li>
-		<li><a wicket:id="adminPageLink"></a></li>
-	</ul>
-	<hr />
-	<h2>User Info</h2>
-	<p>
-		Roles: <span wicket:id="roles"></span>
-	</p>
-	<button wicket:id="logoutLink"></button>
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="">auth-roles example</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a wicket:id="homePageLink"></a></li>
+                <li><a wicket:id="userPageLink"></a></li>
+                <li><a wicket:id="adminPageLink"></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a wicket:id="logoutLink"></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<main class="container">
+    <div class="page-header">
+        <h1 wicket:id="heading"></h1>
+    </div>
+    <wicket:child/>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">User Info</h2>
+        </div>
+        <div class="panel-body">
+            <wicket:enclosure>
+                <p>
+                    UserName:
+                    <span wicket:id="userName"></span>
+                </p>
+            </wicket:enclosure>
+            <p style="margin-bottom: 0">
+                Roles: <span wicket:id="roles"></span>
+            </p>
+        </div>
+    </div>
+</main>
 </body>
 </html>

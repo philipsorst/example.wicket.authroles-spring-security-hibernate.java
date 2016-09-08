@@ -15,10 +15,11 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
-
+/**
+ * @author Philip Washington Sorst <philip@sorst.net>
+ */
 public class DatabaseUserService implements UserService
 {
-
     private EntityManager entityManager;
 
     private PasswordEncoder passwordEncoder;

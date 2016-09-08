@@ -1,11 +1,16 @@
 package net.dontdrinkandroot.example.wassh.wicket.page;
 
+import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.Model;
+
+/**
+ * @author Philip Washington Sorst <philip@sorst.net>
+ */
 public class HomePage extends DecoratorPage<Void>
 {
-
     @Override
-    protected void onInitialize()
+    protected IModel<String> getTitleModel()
     {
-        super.onInitialize();
+        return Model.of("HomePage");
     }
 }

@@ -1,5 +1,7 @@
 package net.dontdrinkandroot.example.wassh.wicket;
 
+import net.dontdrinkandroot.example.wassh.domain.model.User;
+import org.apache.wicket.Session;
 import org.apache.wicket.authroles.authentication.AuthenticatedWebSession;
 import org.apache.wicket.authroles.authorization.strategies.role.Roles;
 import org.apache.wicket.injection.Injector;
@@ -14,10 +16,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.util.Collection;
 
-
+/**
+ * @author Philip Washington Sorst <philip@sorst.net>
+ */
 public class WebSession extends AuthenticatedWebSession
 {
-
     @SpringBean(name = "authenticationManager")
     private AuthenticationManager authenticationManager;
 
@@ -67,5 +70,27 @@ public class WebSession extends AuthenticatedWebSession
     {
         super.signOut();
         SecurityContextHolder.getContext().setAuthentication(null);
+    }
+
+    public User getUser()
+    {
+        if (this.isSignedIn()) {
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            if (null == authentication
+                    || null == authentication.getPrincipal()
+                    || !(authentication.getPrincipal() instanceof User)) {
+                this.invalidate();
+                return null;
+            }
+
+            return (User) authentication.getPrincipal();
+        }
+
+        return null;
+    }
+
+    public static WebSession get()
+    {
+        return (WebSession) Session.get();
     }
 }

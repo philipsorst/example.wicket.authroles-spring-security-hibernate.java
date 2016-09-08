@@ -6,10 +6,11 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.transaction.annotation.Transactional;
 
-
+/**
+ * @author Philip Washington Sorst <philip@sorst.net>
+ */
 public class DatabaseInitializer implements ApplicationListener<ContextRefreshedEvent>
 {
-
     private UserService userService;
 
     public DatabaseInitializer(UserService userService)

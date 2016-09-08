@@ -8,11 +8,12 @@ import org.apache.wicket.authroles.authorization.strategies.role.annotations.Aut
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.Model;
 
-
-@AuthorizeActions(actions = { @AuthorizeAction(action = Action.ENABLE, roles = { Roles.USER }) })
+/**
+ * @author Philip Washington Sorst <philip@sorst.net>
+ */
+@AuthorizeActions(actions = {@AuthorizeAction(action = Action.RENDER, roles = {Roles.USER})})
 public class LogoutLink extends Link<Void>
 {
-
     public LogoutLink(String id)
     {
         super(id);
