@@ -1,7 +1,5 @@
 package net.dontdrinkandroot.example.wassh.wicket;
 
-import java.util.Collection;
-
 import org.apache.wicket.authroles.authentication.AuthenticatedWebSession;
 import org.apache.wicket.authroles.authorization.strategies.role.Roles;
 import org.apache.wicket.injection.Injector;
@@ -14,59 +12,60 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 
+import java.util.Collection;
+
 
 public class WebSession extends AuthenticatedWebSession
 {
 
-	@SpringBean(name = "authenticationManager")
-	private AuthenticationManager authenticationManager;
+    @SpringBean(name = "authenticationManager")
+    private AuthenticationManager authenticationManager;
 
+    public WebSession(Request request)
+    {
+        super(request);
+        Injector.get().inject(this);
+    }
 
-	public WebSession(Request request)
-	{
-		super(request);
-		Injector.get().inject(this);
-	}
+    @Override
+    protected boolean authenticate(String username, String password)
+    {
+        boolean authenticated = false;
+        try {
+            Authentication authentication = this.authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(username, password));
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+            authenticated = authentication.isAuthenticated();
+        } catch (AuthenticationException e) {
+            authenticated = false;
+        }
 
-	@Override
-	protected boolean authenticate(String username, String password)
-	{
-		boolean authenticated = false;
-		try {
-			Authentication authentication = this.authenticationManager.authenticate(
-					new UsernamePasswordAuthenticationToken(username, password));
-			SecurityContextHolder.getContext().setAuthentication(authentication);
-			authenticated = authentication.isAuthenticated();
-		} catch (AuthenticationException e) {
-			authenticated = false;
-		}
+        return authenticated;
+    }
 
-		return authenticated;
-	}
+    @Override
+    public Roles getRoles()
+    {
+        Roles roles = new Roles();
+        if (this.isSignedIn()) {
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            if (null == authentication) {
+                this.invalidate();
+                return roles;
+            }
+            Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+            for (GrantedAuthority grantedAuthority : authorities) {
+                roles.add(grantedAuthority.toString());
+            }
+        }
 
-	@Override
-	public Roles getRoles()
-	{
-		Roles roles = new Roles();
-		if (this.isSignedIn()) {
-			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-			if (null == authentication) {
-				this.invalidate();
-				return roles;
-			}
-			Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-			for (GrantedAuthority grantedAuthority : authorities) {
-				roles.add(grantedAuthority.toString());
-			}
-		}
+        return roles;
+    }
 
-		return roles;
-	}
-
-	@Override
-	public void signOut()
-	{
-		super.signOut();
-		SecurityContextHolder.getContext().setAuthentication(null);
-	}
+    @Override
+    public void signOut()
+    {
+        super.signOut();
+        SecurityContextHolder.getContext().setAuthentication(null);
+    }
 }
