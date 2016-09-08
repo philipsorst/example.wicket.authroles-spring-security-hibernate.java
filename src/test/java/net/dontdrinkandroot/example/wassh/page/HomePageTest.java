@@ -18,7 +18,7 @@ public class HomePageTest extends AbstractWicketTest
 
         TagTester logoutLinkTester =
                 TagTester.createTagByAttribute(this.tester.getLastResponseAsString(), "wicket:id", "logoutLink");
-        Assert.assertTrue(logoutLinkTester.getAttributeIs("disabled", "disabled"));
+        Assert.assertNull(logoutLinkTester);
     }
 
     @Test
@@ -30,7 +30,7 @@ public class HomePageTest extends AbstractWicketTest
 
         TagTester logoutLinkTester =
                 TagTester.createTagByAttribute(this.tester.getLastResponseAsString(), "wicket:id", "logoutLink");
-        Assert.assertFalse(logoutLinkTester.hasAttribute("disabled"));
+        Assert.assertNotNull(logoutLinkTester);
 
         this.tester.clickLink("logoutLink");
 

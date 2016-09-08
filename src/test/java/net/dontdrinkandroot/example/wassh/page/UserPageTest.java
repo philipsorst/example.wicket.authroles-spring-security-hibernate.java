@@ -1,8 +1,8 @@
 package net.dontdrinkandroot.example.wassh.page;
 
 import net.dontdrinkandroot.example.wassh.AbstractWicketTest;
+import net.dontdrinkandroot.example.wassh.wicket.page.SignInPage;
 import net.dontdrinkandroot.example.wassh.wicket.page.UserPage;
-import org.apache.wicket.authroles.authentication.pages.SignInPage;
 import org.junit.Test;
 
 

@@ -2,8 +2,8 @@ package net.dontdrinkandroot.example.wassh.page;
 
 import net.dontdrinkandroot.example.wassh.AbstractWicketTest;
 import net.dontdrinkandroot.example.wassh.wicket.page.AdminPage;
+import net.dontdrinkandroot.example.wassh.wicket.page.SignInPage;
 import org.apache.wicket.authorization.UnauthorizedInstantiationException;
-import org.apache.wicket.authroles.authentication.pages.SignInPage;
 import org.junit.Test;
 
 
